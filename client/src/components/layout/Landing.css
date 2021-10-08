@@ -1,0 +1,19 @@
+.movies{
+    display: flex;
+}
+
+.film{
+    height: 500px;
+    object-fit: contain;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 520px) {
+    .movies{
+        display: none;
+    }
+    .film{
+        display: none;
+    }
+}
