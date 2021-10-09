@@ -21,6 +21,7 @@ function SingleMovie() {
             name: user.name,
             avatar: user.avatar,
         }
+        setText("")
         dispatch(addReview(review,movie_id))
     }
 
