@@ -46,7 +46,6 @@ function AddMovies() {
                                 onChange={(e)=>setTitle(e.target.value)}
                                 name="title"
                                 type="text" />
-                            <button>Add</button>
                             <input type="submit" className="btn btn-success btn-block mt-4" />
                         </form>
 
