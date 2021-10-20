@@ -23,6 +23,8 @@ import { clearCurrentProfile } from './actions/profileAction';
 import Lists from './components/Movies/Lists';
 import SingleMovie from './components/SingleMovie/SingleMovie';
 
+import NotFound from './components/notFound/NotFound'
+
 // check for token
 if(localStorage.jwtToken){
   // set the header of auth
@@ -71,6 +73,10 @@ function App() {
         <Route exact path="/profile/:handle" render={(props) =>  <UserProfile {...props} />} />
         <Route exact path="/movies" component={Lists} />
         <Route exact path="/movies/:movie_id" component={SingleMovie} />
+        <Route exact path="/not-found">
+          <NotFound />
+        </Route>
+            
       </div>
       <footer>
         <Footer />
