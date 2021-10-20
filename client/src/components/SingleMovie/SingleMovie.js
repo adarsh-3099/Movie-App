@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { addPost, addReview, getPost } from '../../actions/postAction'
 import isEmpty from '../../validation/is_empty'
+import CommentItem from './CommentItem'
 
 function SingleMovie() {
     
@@ -34,7 +35,7 @@ function SingleMovie() {
         <div className="container">
             <div className="row">
                 <div className="form-group">
-                    <textarea type="text-area" onChange={(e)=>setText(e.target.value)} className="form-control form-control-lg" />
+                    <textarea type="text-area" value={text} onChange={(e)=>setText(e.target.value)} className="form-control form-control-lg" />
                     <br />
                     <button type="submit" onClick={onClickHandler} className="btn btn-success">Post Review</button>
                 </div>
@@ -78,22 +79,7 @@ function SingleMovie() {
             { isAuthenticated ? authLinks : null }
             <h1 className="display-4 text-left text-center text-white">User Reviews</h1>
             <hr className="text-white"/>
-            {
-                isEmpty(movie_post.review) ? null : (
-                    movie_post.review.map((rev)=>(
-                        <div>
-                            <div className="text-left d-flex align-items-center px-md-5">
-                                <div>
-                                    <img src={rev.avatar} className="rounded px-md-5" style={{height: '60px'}}/>
-                                    <p className="lead text-white px-md-5">{rev.name}</p>
-                                </div>
-                                <p className="lead text-white">{rev.text}</p>
-                            </div>
-                            <hr className="text-white" />
-                        </div>
-                    ))
-                )
-            }
+            <CommentItem post={movie_post} />
         </div>
     )
 }

@@ -70,7 +70,7 @@ router.post('/review/:movie_id',passport.authenticate('jwt',{ session: false }),
         // console.log(post)
         // console.log(newReview)
         // add to comments
-        post.review.push(newReview)
+        post.review.unshift(newReview)
 
         post.save().then(post => res.json(post))
         .catch(err => res.json(err))
