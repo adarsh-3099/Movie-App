@@ -21,6 +21,11 @@ npm start
 npm run dev
 ```
 
+## Link
+'''
+https://movie-app3099.herokuapp.com/register
+'''
+
 ## Requirements
 
 You also need to run the backend and frontend locally.
