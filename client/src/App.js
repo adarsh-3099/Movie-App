@@ -24,6 +24,7 @@ import Lists from './components/Movies/Lists';
 import SingleMovie from './components/SingleMovie/SingleMovie';
 
 import NotFound from './components/notFound/NotFound'
+import Recommendations from './components/SingleMovie/Recommendations';
 
 // check for token
 if(localStorage.jwtToken){
@@ -73,6 +74,7 @@ function App() {
         <Route exact path="/profile/:handle" render={(props) =>  <UserProfile {...props} />} />
         <Route exact path="/movies" component={Lists} />
         <Route exact path="/movies/:movie_id" component={SingleMovie} />
+        <Route exact path="/movies/:movie_id/recommend" component={Recommendations} />
         <Route exact path="/not-found">
           <NotFound />
         </Route>

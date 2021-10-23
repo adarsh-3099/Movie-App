@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addPost, addReview, getPost } from '../../actions/postAction'
 import isEmpty from '../../validation/is_empty'
 import CommentItem from './CommentItem'
+import { Link } from 'react-router-dom'
 
 function SingleMovie() {
     
@@ -13,7 +14,9 @@ function SingleMovie() {
     const { movie_post } = useSelector(state => state.movie_post)
 
     const dispatch = useDispatch()
+
     const [text,setText] = useState("")
+    
     const onClickHandler = (event)=>{
         event.preventDefault();
 
@@ -25,6 +28,7 @@ function SingleMovie() {
         setText("")
         dispatch(addReview(review,movie_id))
     }
+
 
     useEffect(()=>{
         dispatch(getPost(movie_id))
@@ -47,7 +51,8 @@ function SingleMovie() {
 
     const params = useParams()
     const { movie_id } = params
-    console.log("---]]]",movie_post)
+    // console.log("---]]]",movie_post)
+    // console.log(recommendations)
 
     useEffect(()=>{
         const getData = (movie_id) =>{
@@ -72,6 +77,11 @@ function SingleMovie() {
                     <h3 className="lead text-center text-white ">Overview</h3>
                     <p className="lead text-white  col-xs-3"><small>{movie.overview}</small></p>
                     <hr className="text-white " />
+                    { isAuthenticated ? (
+                        <Link to={"/movies/"+movie_id+"/recommend"}>
+                             <button className="btn btn-success">Get Recommendations</button>
+                        </Link>
+                    ) : null }
                 </div>
             </div>
             <h1 className="display-4 mb-4 text-white text-left">Movie Reviews</h1>
