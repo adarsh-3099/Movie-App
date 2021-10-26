@@ -22,9 +22,8 @@ npm run dev
 ```
 
 ## Link
-'''
 https://movie-app3099.herokuapp.com/register
-'''
+
 
 ## Requirements
 
